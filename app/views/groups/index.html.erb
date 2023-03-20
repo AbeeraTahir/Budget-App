@@ -1,3 +1,13 @@
 <h1>All Categories</h1>
 
-<button><%= link_to 'Add new group', new_group_path %> </button>
+<% @groups.each do |group| %>
+  <ul>
+    <li>
+      <%= image_tag group.icon %>
+      <h2><%= group.name %></h2>
+      <p><%= group.created_at.strftime("%d-%m-%Y") %></p>
+    </li>
+  </ul>
+<% end %>
+
+<button><%= link_to 'Add new category', new_group_path %> </button>
