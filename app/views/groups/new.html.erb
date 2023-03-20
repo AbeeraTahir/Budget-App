@@ -1,0 +1,8 @@
+<h1>Add New Category</h1>
+
+<%= form_with model: @group, url: groups_path, local: true do |f| %>
+  <%= f.text_field :name, autofocus: true, placeholder: "Category Name" %>
+  <%= f.file_field :icon %>
+
+  <%= f.submit "Save" %>
+<% end %>
