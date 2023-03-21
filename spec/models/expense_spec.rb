@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Group, type: :model do
+RSpec.describe Expense, type: :model do
   subject do
     @user = User.create(name: 'Abeera', email: 'abeera@gmail.com', password: '123456')
     @expense = Expense.create(name: 'food', amount: 10.0, user: @user)
