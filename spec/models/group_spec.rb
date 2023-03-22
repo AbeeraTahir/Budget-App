@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe Group, type: :model do
   subject do
     @user = User.create(name: 'Abeera', email: 'abeera@gmail.com', password: '123456')
-    @group = Group.create(name: 'food', icon: nil, user: @user)
+    @icon_file = fixture_file_upload(Rails.root.join('spec', 'fixtures', 'files', 'test.png'), 'image/png')
+    @group = Group.create(name: 'food', icon: @icon_file, user: @user)
   end
 
   before { subject.save }
