@@ -1,0 +1,9 @@
+<h1>Add New Expense</h1>
+
+<%= form_with model: @expense, url: group_expenses_path, local: true do |f| %>
+  <%= f.text_field :name, autofocus: true, placeholder: "Name" %>
+  <%= f.number_field :amount, autofocus: true, placeholder: "Amount" %>
+  <%= f.collection_select(:group_ids, current_user.groups, :id, :name, {}, multiple: true) %>
+
+  <%= f.submit "Save" %>
+<% end %>

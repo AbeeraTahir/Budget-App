@@ -20,6 +20,14 @@ class GroupsController < ApplicationController
     end
   end
 
+  def show
+    @group = Group.find(params[:id])
+    if @group.user == current_user
+      @expenses = @group.expenses.order(created_at: :desc)
+      @total = @expenses.sum(:amount)
+    end
+  end
+
   private
 
   def set_user

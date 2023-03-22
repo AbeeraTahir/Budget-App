@@ -3,10 +3,12 @@
 <% @groups.each do |group| %>
   <ul>
     <li>
-      <%= image_tag group.icon %>
-      <h2><%= group.name %></h2>
-      <p><%= group.created_at.strftime("%d-%m-%Y") %></p>
-      <p><h3>$<%= group.expenses.sum(:amount) %></h3></p>
+      <%= link_to group_path(group) do %>
+        <%= image_tag group.icon %>
+        <h2><%= group.name %></h2>
+        <p><%= group.created_at.strftime("%d-%m-%Y") %></p>
+        <p>$<%= group.expenses.sum(:amount) %></p>
+      <% end %>
     </li>
   </ul>
 <% end %>

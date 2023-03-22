@@ -1,0 +1,14 @@
+<h1>All Transactions</h1>
+
+<% @expenses.each do |expense| %>
+  <ul>
+    <li>
+      <%= image_tag @group.icon %>
+      <h2><%= expense.name %></h2>
+      <p><%= expense.created_at.strftime("%d-%m-%Y") %></p>
+      <p><h3>$<%= expense.amount %></h3></p>
+    </li>
+  </ul>
+<% end %>
+
+<button><%= link_to 'Add new transaction', new_group_expense_path(group_id: @group.id) %> </button>
