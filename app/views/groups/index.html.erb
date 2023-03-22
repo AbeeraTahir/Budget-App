@@ -6,6 +6,7 @@
       <%= image_tag group.icon %>
       <h2><%= group.name %></h2>
       <p><%= group.created_at.strftime("%d-%m-%Y") %></p>
+      <p><h3>$<%= group.expenses.sum(:amount) %></h3></p>
     </li>
   </ul>
 <% end %>
