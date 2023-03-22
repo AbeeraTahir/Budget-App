@@ -5,6 +5,9 @@ class ExpensesController < ApplicationController
 
   def create
     @group = Group.find(params[:group_id])
+    unless @group.user == current_user
+      return redirect_to groups_path, notice: 'You can only create expenses from your categories'
+    end
     @expense = Expense.new(expense_params)
     @expense.user = current_user
 

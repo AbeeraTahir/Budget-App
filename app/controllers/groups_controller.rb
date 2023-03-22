@@ -22,10 +22,11 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find(params[:id])
-    if @group.user == current_user
-      @expenses = @group.expenses.order(created_at: :desc)
-      @total = @expenses.sum(:amount)
+    unless @group.user == @user
+      redirect_to groups_path, notice: 'You are not authorized to access this page!'
     end
+    @expenses = @group.expenses.order(created_at: :desc)
+    @total = @expenses.sum(:amount)
   end
 
   private
