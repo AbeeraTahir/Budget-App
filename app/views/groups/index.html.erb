@@ -1,4 +1,6 @@
-<h1>All Categories</h1>
+<%= render partial: 'shared/header', locals: { heading: 'Categories' } %>
+
+<%= render 'shared/flash' %>
 
 <% @groups.each do |group| %>
   <ul>

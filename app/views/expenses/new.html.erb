@@ -1,5 +1,7 @@
 <h1>Add New Expense</h1>
 
+<%= render 'shared/flash' %>
+
 <%= form_with model: @expense, url: group_expenses_path, local: true do |f| %>
   <%= f.text_field :name, autofocus: true, placeholder: "Name" %>
   <%= f.number_field :amount, autofocus: true, placeholder: "Amount" %>
