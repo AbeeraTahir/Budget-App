@@ -1,14 +1,18 @@
-<%= render partial: 'shared/header', locals: { heading: 'CATEGORIES' } %>
+<%= render partial: 'shared/header', locals: { heading: 'CATEGORIES', path: groups_path } %>
 
 <%= render 'shared/flash' %>
 
 <div class="content-container">
   <% @groups.each do |group| %>
     <ul>
-      <li>
+      <li class="card">
         <%= link_to group_path(group), class: "flex-row" do %>
           <div class="image">
-            <%= image_tag group.icon %>
+            <% if group.icon.attached?%>
+              <%= image_tag(group.icon) %>
+            <%else%>
+              <%= image_tag('group.png') %>
+            <%end%>
           </div>
           <div class="info">
             <div class="name-amount">

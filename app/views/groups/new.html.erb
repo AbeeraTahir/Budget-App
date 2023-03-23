@@ -1,10 +1,11 @@
-<h1>Add New Category</h1>
+<%= render partial: 'shared/header', locals: { heading: 'ADD NEW CATEGORY', path: groups_path } %>
 
 <%= render 'shared/flash' %>
 
-<%= form_with model: @group, url: groups_path, local: true do |f| %>
-  <%= f.text_field :name, autofocus: true, placeholder: "Category Name" %>
-  <%= f.file_field :icon %>
-
-  <%= f.submit "Save" %>
+<%= form_with model: @group, url: groups_path, local: true, class: 'form' do |f| %>
+  <%= f.text_field :name, autofocus: true, placeholder: "Category Name", class: "form-field" %>
+  <div class="checkbox-btn">
+    <%= f.file_field :icon %>
+    <%= f.submit "Save", class: "btn splash-login" %>
+  </div>
 <% end %>

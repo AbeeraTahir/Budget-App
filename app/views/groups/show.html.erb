@@ -1,13 +1,22 @@
-<%= render partial: 'shared/header', locals: { heading: 'TRANSACTIONS' } %>
+<%= render partial: 'shared/header', locals: { heading: 'TRANSACTIONS', path: groups_path } %>
 
 <%= render 'shared/flash' %>
+
+<div class="card name-amount p-10">
+  <h3><%= @group.name %></h3>
+  <h3>$<%= @expenses.sum(:amount) %></h3>
+</div>
 
 <div class="content-container">
   <% @expenses.each do |expense| %>
     <ul>
-      <li class="flex-row">
+      <li class="flex-row card">
         <div class="image">
-          <%= image_tag @group.icon %>
+          <% if @group.icon.attached?%>
+            <%= image_tag(@group.icon) %>
+          <%else%>
+            <%= image_tag('group.png') %>
+          <%end%>
         </div>
         <div class="info">
           <div class="name-amount">

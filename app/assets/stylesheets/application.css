@@ -56,10 +56,14 @@ ul {
   list-style: none;
 }
 
-ul li {
+.card {
   background-color: white;
   padding: 5px;
   box-shadow: 1px 1px 5px 0 var(--grey);
+}
+
+.p-10 {
+  padding: 10px;
 }
 
 .flex-row {
@@ -77,6 +81,10 @@ img {
   justify-content: space-between;
 }
 
+.name-amount h3 {
+  font-size: 1rem;
+}
+
 .info {
   display: flex;
   flex-direction: column;
@@ -86,10 +94,6 @@ img {
 
 .info p {
   font-size: 0.75rem;
-}
-
-.info h3 {
-  font-size: 1rem;
 }
 
 .btn {
@@ -103,6 +107,7 @@ img {
 .flash {
   margin: 10px 0;
   padding: 10px;
+  font-size: 0.8rem;
 }
 
 .flash-success {
@@ -127,12 +132,20 @@ img {
   padding: 10px;
   background-color: var(--color-primary);
   color: white;
+  display: flex;
+  align-items: center;
 }
 
 .header h1 {
   text-align: center;
   font-size: 1.1rem;
   font-weight: 200;
+  width: 100%;
+}
+
+.back {
+  width: 13px;
+  height: 15px;
 }
 
 .splash-screen {
@@ -214,4 +227,10 @@ img {
   bottom: 0;
   background-color: var(--color-secondary);
   color: white;
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
