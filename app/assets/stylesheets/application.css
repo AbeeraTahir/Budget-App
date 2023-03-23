@@ -35,25 +35,69 @@
 
 body {
   font-family: var(--main-font);
-  color: var(--text-color);
+  color: var(--color-dark);
   background-color: var(--background-color);
 }
 
 a {
   text-decoration: none;
-  color: var(--text-color);
+  color: var(--color-dark);
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0;
+  padding: 0 10px;
 }
 
 ul {
   list-style: none;
 }
 
+ul li {
+  background-color: white;
+  padding: 5px;
+  box-shadow: 1px 1px 5px 0 var(--grey);
+}
+
+.flex-row {
+  display: flex;
+  gap: 10px;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+}
+
+.name-amount {
+  display: flex;
+  justify-content: space-between;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.info p {
+  font-size: 0.75rem;
+}
+
+.info h3 {
+  font-size: 1rem;
+}
+
 .btn {
-  border: none;
-  padding: 15px 10px;
+  padding: 10px;
   font-size: 0.9rem;
   cursor: pointer;
   width: 100%;
+  border: 1px solid transparent;
 }
 
 .flash {
@@ -80,15 +124,15 @@ ul {
 }
 
 .header {
-  padding: 15px;
+  padding: 10px;
   background-color: var(--color-primary);
   color: white;
 }
 
 .header h1 {
   text-align: center;
-  font-size: 1.3rem;
-  font-weight: 400;
+  font-size: 1.1rem;
+  font-weight: 200;
 }
 
 .splash-screen {
@@ -114,6 +158,7 @@ ul {
   flex-direction: column;
   gap: 10px;
   padding: 10px;
+  height: 20vh;
 }
 
 .splash-login {
@@ -162,4 +207,11 @@ ul {
 
 .form-links a {
   color: var(--color-dark);
+}
+
+.group-btn {
+  position: fixed;
+  bottom: 0;
+  background-color: var(--color-secondary);
+  color: white;
 }

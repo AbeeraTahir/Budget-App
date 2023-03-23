@@ -1,18 +1,26 @@
-<%= render partial: 'shared/header', locals: { heading: 'Categories' } %>
+<%= render partial: 'shared/header', locals: { heading: 'CATEGORIES' } %>
 
 <%= render 'shared/flash' %>
 
-<% @groups.each do |group| %>
-  <ul>
-    <li>
-      <%= link_to group_path(group) do %>
-        <%= image_tag group.icon %>
-        <h2><%= group.name %></h2>
-        <p><%= group.created_at.strftime("%d-%m-%Y") %></p>
-        <p>$<%= group.expenses.sum(:amount) %></p>
-      <% end %>
-    </li>
-  </ul>
-<% end %>
+<div class="content-container">
+  <% @groups.each do |group| %>
+    <ul>
+      <li>
+        <%= link_to group_path(group), class: "flex-row" do %>
+          <div class="image">
+            <%= image_tag group.icon %>
+          </div>
+          <div class="info">
+            <div class="name-amount">
+              <h3><%= group.name %></h3>
+              <h3>$<%= group.expenses.sum(:amount) %></h3>
+            </div>
+            <p><%= group.created_at.strftime("%d-%m-%Y") %></p>
+          </div>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
 
-<button><%= link_to 'Add new category', new_group_path %> </button>
+  <%= link_to new_group_path do %><button class="btn group-btn">Add new category</button><% end %>
+</div>

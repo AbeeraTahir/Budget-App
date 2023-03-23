@@ -1,16 +1,24 @@
-<h1>All Transactions</h1>
+<%= render partial: 'shared/header', locals: { heading: 'TRANSACTIONS' } %>
 
 <%= render 'shared/flash' %>
 
-<% @expenses.each do |expense| %>
-  <ul>
-    <li>
-      <%= image_tag @group.icon %>
-      <h2><%= expense.name %></h2>
-      <p><%= expense.created_at.strftime("%d-%m-%Y") %></p>
-      <p><h3>$<%= expense.amount %></h3></p>
-    </li>
-  </ul>
-<% end %>
+<div class="content-container">
+  <% @expenses.each do |expense| %>
+    <ul>
+      <li class="flex-row">
+        <div class="image">
+          <%= image_tag @group.icon %>
+        </div>
+        <div class="info">
+          <div class="name-amount">
+            <h3><%= expense.name %></h3>
+            <h3>$<%= expense.amount %></h3>
+          </div>
+          <p><%= expense.created_at.strftime("%d-%m-%Y") %></p>
+        </div>
+      </li>
+    </ul>
+  <% end %>
 
-<button><%= link_to 'Add new transaction', new_group_expense_path(group_id: @group.id) %> </button>
+  <%= link_to new_group_expense_path(group_id: @group.id) do %><button class="btn group-btn">Add new transaction</button><% end %>
+</div>
