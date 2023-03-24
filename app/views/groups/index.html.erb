@@ -1,0 +1,30 @@
+<%= render partial: 'shared/header', locals: { heading: 'CATEGORIES', path: groups_path } %>
+
+<%= render 'shared/flash' %>
+
+<div class="content-container">
+  <% @groups.each do |group| %>
+    <ul>
+      <li class="card">
+        <%= link_to group_path(group), class: "flex-row" do %>
+          <div class="image">
+            <% if group.icon.attached?%>
+              <%= image_tag(group.icon) %>
+            <%else%>
+              <%= image_tag('group.png') %>
+            <%end%>
+          </div>
+          <div class="info">
+            <div class="name-amount">
+              <h3><%= group.name %></h3>
+              <h3>$<%= group.expenses.sum(:amount) %></h3>
+            </div>
+            <p><%= group.created_at.strftime("%d-%m-%Y") %></p>
+          </div>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
+
+  <%= link_to new_group_path do %><button class="btn group-btn">Add new category</button><% end %>
+</div>
