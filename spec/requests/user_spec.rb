@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Log in page', type: :system do
   describe 'users/signin' do
     before(:each) do
-      @user = User.create!(name: 'user', email: 'user@example.com', password: 'password')
-      @user.skip_confirmation!
+      @user = User.create(name: 'user', email: 'user@example.com', password: 'password')
       @user.save!
       visit new_user_session_path
     end
@@ -52,11 +51,6 @@ RSpec.describe 'Log in page', type: :system do
     it 'click on `Forgot your password?`' do
       click_link 'Forgot your password?'
       expect(page).to have_current_path new_user_password_path
-    end
-
-    it 'click on `Didn`t receive confirmation instructions?`' do
-      click_link "Didn't receive confirmation instructions?"
-      expect(page).to have_current_path new_user_confirmation_path
     end
   end
 end

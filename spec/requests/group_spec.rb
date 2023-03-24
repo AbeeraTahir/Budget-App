@@ -3,10 +3,9 @@ require 'rails_helper'
 RSpec.describe 'Groups page', type: :system do
   describe 'Groups /index' do
     before(:each) do
-      @user = User.create!(name: 'name', email: 'email@gmail.com', password: '123456')
+      @user = User.create(name: 'name', email: 'email@gmail.com', password: '123456')
       @icon_file = fixture_file_upload(Rails.root.join('spec', 'fixtures', 'files', 'test.png'), 'image/png')
       @group = Group.create(name: 'food', icon: @icon_file, user: @user)
-      @user.skip_confirmation!
       @user.save!
       visit new_user_session_path
       fill_in 'user_email', with: 'email@gmail.com'
@@ -46,7 +45,6 @@ RSpec.describe 'Groups page', type: :system do
       @icon_file = fixture_file_upload(Rails.root.join('spec', 'fixtures', 'files', 'test.png'), 'image/png')
       @group = Group.create(name: 'food', icon: @icon_file, user: @user)
       @expense = Expense.create(name: 'cake', amount: 100, group_ids: [@group.id], user: @user)
-      @user.skip_confirmation!
       @user.save!
       visit new_user_session_path
       fill_in 'user_email', with: 'email@gmail.com'

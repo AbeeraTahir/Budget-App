@@ -17,7 +17,7 @@ class ExpensesController < ApplicationController
       @expense.user = current_user
 
       if @expense.save
-        flash[:notice] = 'Expense created successfully'
+        flash[:notice] = 'Transaction created successfully'
         @redirect_group = Group.find(expense_params[:group_ids].at(1))
         redirect_to @redirect_group
       else
