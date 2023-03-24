@@ -18,7 +18,8 @@ class ExpensesController < ApplicationController
 
       if @expense.save
         flash[:notice] = 'Expense created successfully'
-        redirect_to @group
+        @redirect_group = Group.find(expense_params[:group_ids].at(1))
+        redirect_to @redirect_group
       else
         flash[:alert] = @expense.errors.full_messages.first if @expense.errors.any?
         render :new, status: :unprocessable_entity

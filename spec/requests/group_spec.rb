@@ -34,7 +34,7 @@ RSpec.describe 'Groups page', type: :system do
     end
 
     it 'click on add new category button' do
-      link = find('a', text: 'Add new category', match: :first)
+      link = find('button', text: 'Add new category')
       link.click
       sleep(1)
       expect(page).to have_current_path new_group_path
@@ -67,7 +67,7 @@ RSpec.describe 'Groups page', type: :system do
     end
 
     it 'click on add new transaction button' do
-      link = find('a', text: 'Add new transaction', match: :first)
+      link = find('button', text: 'Add new transaction')
       link.click
       sleep(1)
       expect(page).to have_current_path new_group_expense_path(@group)

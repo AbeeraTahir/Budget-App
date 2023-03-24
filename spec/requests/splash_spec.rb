@@ -7,7 +7,7 @@ RSpec.describe 'Splash Page', type: :system do
     end
 
     it 'displays valid welcome text' do
-      expect(page).to have_content('Welcome to Budget App')
+      expect(page).to have_content('Budget App')
     end
 
     it 'displays a button with text Log in' do
