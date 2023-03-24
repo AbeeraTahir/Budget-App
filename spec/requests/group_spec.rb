@@ -21,7 +21,7 @@ RSpec.describe 'Groups page', type: :system do
 
     it 'displays the name, date, amount of group' do
       expect(page).to have_content(@group.name)
-      expect(page).to have_content(@group.created_at.strftime("%d-%m-%Y"))
+      expect(page).to have_content(@group.created_at.strftime('%d-%m-%Y'))
       expect(page).to have_content(@group.expenses.sum(:amount))
     end
 
@@ -60,7 +60,7 @@ RSpec.describe 'Groups page', type: :system do
 
     it 'displays the name, date, amount of expense' do
       expect(page).to have_content(@expense.name)
-      expect(page).to have_content(@expense.created_at.strftime("%d-%m-%Y"))
+      expect(page).to have_content(@expense.created_at.strftime('%d-%m-%Y'))
       expect(page).to have_content(@expense.amount)
     end
 
